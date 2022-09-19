@@ -1,12 +1,15 @@
-import { Box, CardMedia, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Box, CardMedia, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import loginImg from '../../assets/images/login.png';
 import MuiButton from '../styledComponent/MuiButton';
 import { styled } from '@mui/material/styles';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
     const [registerData, setRegisterData] = useState({});
+    const {registerUser, isLoading, user, authError} = useAuth();
+
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -21,6 +24,7 @@ const Register = () => {
         if(registerData.password !== registerData.password2){
             alert('Your password did not match');
         }
+        registerUser(registerData.email, registerData.password);
     }
 
     // breakpoints wise marginTop 
@@ -37,7 +41,7 @@ const Register = () => {
                     <Grid item xs={12} sm={6} md={6} lg={5} sx={{display: 'flex', alignItems: 'center'}}>
                         <Box>
                             <Typography style={{textAlign: 'center', margin: '5px 0', fontWeight:600, color: '#19D3AE'}} variant='h6'>Register</Typography>
-                            <form onSubmit={handleRegisterSubmit}>
+                            { !isLoading && <form onSubmit={handleRegisterSubmit}>
                                 <TextField 
                                     margin='dense'
                                     fullWidth
@@ -87,7 +91,10 @@ const Register = () => {
                                 <NavLink style={{textDecoration: 'none', color:'inherit', }} to='/login'>
                                     <Typography variant="subtitle1">Already Registered? Please Login</Typography>
                                 </NavLink>
-                            </form>
+                            </form>}
+                            {isLoading && <CircularProgress/>}
+                            {user?.email && <Alert severity="success">You are successfully registered!</Alert>}
+                            {authError && <Alert severity="error">{authError}</Alert> }
                         </Box> 
                         </Grid>
                         <Grid item xs={12} sm={6} md={6} lg={7} >
