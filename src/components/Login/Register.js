@@ -1,6 +1,6 @@
 import { Alert, Box, CardMedia, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/images/login.png';
 import MuiButton from '../styledComponent/MuiButton';
 import { styled } from '@mui/material/styles';
@@ -9,6 +9,7 @@ import useAuth from '../../hooks/useAuth';
 const Register = () => {
     const [registerData, setRegisterData] = useState({});
     const {registerUser, isLoading, user, authError} = useAuth();
+    const navigate = useNavigate();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -24,7 +25,7 @@ const Register = () => {
         if(registerData.password !== registerData.password2){
             alert('Your password did not match');
         }
-        registerUser(registerData.email, registerData.password);
+        registerUser(registerData.email, registerData.password, navigate);
     }
 
     // breakpoints wise marginTop 
@@ -89,7 +90,7 @@ const Register = () => {
                                 <MuiButton fullWidth type='submit' sx={{mt:3, mb:1}}>REGISTER</MuiButton>
                 
                                 <NavLink style={{textDecoration: 'none', color:'inherit', }} to='/login'>
-                                    <Typography variant="subtitle1">Already Registered? Please Login</Typography>
+                                    <Typography variant="subtitle1" sx={{mb:1}}>Already Registered? Please Login</Typography>
                                 </NavLink>
                             </form>}
                             {isLoading && <CircularProgress/>}

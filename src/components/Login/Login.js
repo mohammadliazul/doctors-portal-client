@@ -1,6 +1,6 @@
 import { Alert, Box, CardMedia, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/images/login.png';
 import useAuth from '../../hooks/useAuth';
 import MuiButton from '../styledComponent/MuiButton';
@@ -9,6 +9,9 @@ const Login = () => {
 
     const [loginData, setLoginData] = useState({});
     const {loginUser, isLoading, user, authError} = useAuth();
+
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -22,7 +25,7 @@ const Login = () => {
     const handleLoginSubmit = e => {
         e.preventDefault();
         // alert('Hello');
-        loginUser(loginData.email, loginData.password);
+        loginUser(loginData.email, loginData.password, location, navigate);
     }
 
     return (
@@ -59,7 +62,7 @@ const Login = () => {
                             <MuiButton fullWidth type='submit' sx={{mt:3, mb:1}}>Login</MuiButton>
 
                             <NavLink style={{textDecoration: 'none',color:'inherit'}} to='/register'>
-                            <Typography variant="subtitle1">New User? Please Register</Typography>
+                            <Typography variant="subtitle1" sx={{mb:1}}>New User? Please Register</Typography>
                             </NavLink>
                         </form>}
                         {isLoading &&  <CircularProgress/>}
