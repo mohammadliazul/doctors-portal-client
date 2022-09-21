@@ -8,12 +8,12 @@ import MuiButton from '../styledComponent/MuiButton';
 const Login = () => {
 
     const [loginData, setLoginData] = useState({});
-    const {loginUser, isLoading, user, authError} = useAuth();
+    const {loginUser, isLoading, user, authError, signInWithGoogle} = useAuth();
 
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         // console.log(field, value);
@@ -26,6 +26,10 @@ const Login = () => {
         e.preventDefault();
         // alert('Hello');
         loginUser(loginData.email, loginData.password, location, navigate);
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, navigate);
     }
 
     return (
@@ -44,7 +48,7 @@ const Login = () => {
                                 id="standard-basic" 
                                 label="Email" 
                                 name="email"
-                                onChange={handleOnChange}
+                                onBlur={handleOnBlur}
                                 variant="standard" />
                             <TextField
                                 margin='dense'
@@ -54,7 +58,7 @@ const Login = () => {
                                 label="Password"
                                 type="password"
                                 name="password"
-                                onChange={handleOnChange}
+                                onBlur={handleOnBlur}
                                 variant="standard"
                             />
                             <Typography variant='subtitle1' sx={{color: '#e45b32', mt:1, cursor: 'pointer'}}>Forgot your password?</Typography>
@@ -62,12 +66,16 @@ const Login = () => {
                             <MuiButton fullWidth type='submit' sx={{mt:3, mb:1}}>Login</MuiButton>
 
                             <NavLink style={{textDecoration: 'none',color:'inherit'}} to='/register'>
-                            <Typography variant="subtitle1" sx={{mb:1}}>New User? Please Register</Typography>
+                            <Typography variant="subtitle1" sx={{mb:1, textAlign: 'center'}}>New User? Please Register</Typography>
                             </NavLink>
                         </form>}
-                        {isLoading &&  <CircularProgress/>}
+                        {isLoading && <span style={{display: 'flex', justifyContent: 'center', marginBottom: '10px'}}><CircularProgress/></span>} 
                         {user?.email && <Alert severity="success">You have successfully login!</Alert>}
-                        {authError && <Alert severity="error">{authError}</Alert> }
+                        {authError && <Alert sx={{mb:2}} severity="error">{authError}</Alert> }
+                        <Box sx={{textAlign:'center'}}>
+                            {/* <p>--------------------------------------------------</p> */}
+                            <MuiButton onClick={handleGoogleSignIn} >Google Sign In</MuiButton>
+                        </Box>
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} lg={7}>

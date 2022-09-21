@@ -11,7 +11,7 @@ const Register = () => {
     const {registerUser, isLoading, user, authError} = useAuth();
     const navigate = useNavigate();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         // console.log(field, value);
@@ -25,7 +25,7 @@ const Register = () => {
         if(registerData.password !== registerData.password2){
             alert('Your password did not match');
         }
-        registerUser(registerData.email, registerData.password, navigate);
+        registerUser(registerData.email, registerData.password, registerData.name, navigate);
     }
 
     // breakpoints wise marginTop 
@@ -50,7 +50,7 @@ const Register = () => {
                                     id="standard-basic" 
                                     label="Name" 
                                     name="name"
-                                    onChange={handleOnChange}
+                                    onBlur={handleOnBlur}
                                     variant="standard"
                                 />
                                 <TextField 
@@ -61,7 +61,7 @@ const Register = () => {
                                     id="standard-basic" 
                                     label="Email" 
                                     name="email"
-                                    onChange={handleOnChange}
+                                    onBlur={handleOnBlur}
                                     variant="standard" 
                                 />
                                 <TextField
@@ -72,7 +72,7 @@ const Register = () => {
                                     label="Password"
                                     type="password"
                                     name="password"
-                                    onChange={handleOnChange}
+                                    onBlur={handleOnBlur}
                                     variant="standard"
                                 />
                                 <TextField
@@ -83,7 +83,7 @@ const Register = () => {
                                     label="Re-password"
                                     type="password"
                                     name="password2"
-                                    onChange={handleOnChange}
+                                    onBlur={handleOnBlur}
                                     variant="standard"
                                 />
                                         
@@ -93,9 +93,10 @@ const Register = () => {
                                     <Typography variant="subtitle1" sx={{mb:1}}>Already Registered? Please Login</Typography>
                                 </NavLink>
                             </form>}
-                            {isLoading && <CircularProgress/>}
+                            {isLoading && <span style={{display: 'flex', justifyContent: 'center', marginBottom: '10px'}}><CircularProgress/></span>} 
                             {user?.email && <Alert severity="success">You are successfully registered!</Alert>}
                             {authError && <Alert severity="error">{authError}</Alert> }
+
                         </Box> 
                         </Grid>
                         <Grid item xs={12} sm={6} md={6} lg={7} >
