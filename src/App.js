@@ -11,6 +11,8 @@ import Login from './components/Login/Login';
 import Register from './components/Login/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './components/Login/PrivateRoute';
+import Appointments from './components/Dashboard/Appointments/Appointments';
+import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome';
 import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
@@ -19,10 +21,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/appointment" element={<PrivateRoute><Appointment/></PrivateRoute>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="appointment" element={<PrivateRoute><Appointment/></PrivateRoute>}/>
+        <Route path="login" element={<Login/>}/>
+        <Route path="register" element={<Register/>}/>
+        {/* Nested Routes  */}
+        <Route path="dashboard" element={<Dashboard/>}>
+          <Route index element={<DashboardHome/>}/>
+          <Route path="appointments" element={<Appointments/>}/>
+        </Route>
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

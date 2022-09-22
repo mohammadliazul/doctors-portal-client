@@ -2,29 +2,28 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
-import Calendar from '../shared/Calendar';
-import Appointments from './Appointments';
+import { NavLink, Outlet} from 'react-router-dom';
+import { dashboardNavLink } from '../../data/data';
+import useAuth from '../../hooks/useAuth';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [date, setDate] = useState(new Date());
+  const {logOut} = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,27 +31,36 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
-      <Divider />
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+      <Toolbar>
+        <Typography variant='h5' color='#3A4256' fontWeight='600'>Doctors Portal</Typography>
+        </Toolbar>
+      {/* <Divider /> */}
+      
+      {dashboardNavLink.map(({id, name, Icon, link})=>(
+        <List key={id}>
+          <NavLink style={{textDecoration: 'none'}} to={link}>
+          <ListItem disablePadding >
             <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon><Icon sx={{color: '#fff'}}/> </ListItemIcon>
+              <ListItemText sx={{color: '#fff'}}>{name}</ListItemText>
             </ListItemButton>
           </ListItem>
-        ))}
-      </List>
+          </NavLink>
+        </List>
+      ))}
+
+      <ListItemButton onClick={logOut}> 
+        <ListItemIcon><LogoutIcon sx={{color: '#fff'}}/> </ListItemIcon>
+        <ListItemText sx={{color: '#fff'}}>Log Out</ListItemText>
+      </ListItemButton>
+
     </div>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -92,7 +100,7 @@ function Dashboard(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,  background: 'linear-gradient(180deg, #19D3AE, #0FCFEC)' },
           }}
         >
           {drawer}
@@ -101,7 +109,7 @@ function Dashboard(props) {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }, 
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background: 'linear-gradient(180deg, #19D3AE, #0FCFEC)'}, 
           }}
           open
         >
@@ -110,23 +118,11 @@ function Dashboard(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }}}
       >
         <Toolbar />
-        <Grid container spacing={2}>
-          <Grid xs={12} item sm={12} md={6} lg={4}>
-            <Calendar
-              style={{marginTop: '0px !important'}}
-              date={date}
-              setDate={setDate}
-            >
-            </Calendar>
 
-          </Grid>
-          <Grid xs={12} item sm={12} md={6} lg={8}>
-            <Appointments date={date}></Appointments> 
-          </Grid>
-        </Grid>
+        <Outlet/>
 
       </Box>
     </Box>
