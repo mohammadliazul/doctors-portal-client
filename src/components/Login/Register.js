@@ -57,6 +57,7 @@ const Register = () => {
                                     margin='dense'
                                     fullWidth
                                     // required 
+                                    inputProps={{ style: { textTransform: "lowercase" }}}
                                     type="email" 
                                     id="standard-basic" 
                                     label="Email" 

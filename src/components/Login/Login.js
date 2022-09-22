@@ -48,6 +48,7 @@ const Login = () => {
                                 id="standard-basic" 
                                 label="Email" 
                                 name="email"
+                                inputProps={{ style: { textTransform: "lowercase" }}}
                                 onBlur={handleOnBlur}
                                 variant="standard" />
                             <TextField
