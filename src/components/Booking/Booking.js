@@ -6,6 +6,7 @@ import BookingItem from './BookingItem';
 
 const Booking = ({date}) => {
     const [bookingSuccess, setBookingSuccess] = useState(false);
+
     return (
         <Box  sx={{marginBottom: '100px'}}>
             <Container>

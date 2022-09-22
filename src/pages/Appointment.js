@@ -3,11 +3,11 @@ import AppointmentHero from '../components/AppointmentHero/AppointmentHero';
 import Booking from '../components/Booking/Booking';
 import Footer from '../components/Footer/Footer';
 import Navigation from '../components/shared/Navigation';
-import dayjs from 'dayjs';
 
 const Appointment = () => {
-    const [date, setDate] = useState(dayjs());
-    // const [date, setDate] = useState(new Date());
+ 
+    const [date, setDate] = useState(new Date());
+
     return (
         <>
             <Navigation/>

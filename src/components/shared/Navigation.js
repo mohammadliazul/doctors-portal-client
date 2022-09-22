@@ -36,12 +36,16 @@ const Navigation = () => {
                     <Link style={{textDecoration: 'none', color: 'inherit'}} to='/appointment'><Button color="inherit">Appointment</Button></Link>
                     {
                         user?.email ?
-                        // <Link style={{textDecoration: 'none', color: 'inherit'}} to='/logout'>
-                        <Button onClick={logOut} color="inherit">Logout</Button>
+                        <>
+                            <Link style={{textDecoration: 'none', color: 'inherit'}} to='/dashboard'>
+                                <Button color="inherit">Dashboard</Button>
+                            </Link>
+                            <Button onClick={logOut} color="inherit">Logout</Button>
+                        </>
                         :
                         <Link style={{textDecoration: 'none', color: 'inherit'}} to='/login'>
-                        <Button color="inherit">Login</Button>
-                    </Link>
+                            <Button color="inherit">Login</Button>
+                        </Link>
                     }
                 </Toolbar>
             </AppBar>

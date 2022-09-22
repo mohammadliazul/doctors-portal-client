@@ -1,9 +1,8 @@
-import {Container, Grid, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import {Container, Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 import chair from '../../assets/images/chair.png';
 import bg from '../../assets/images/bg.png';
-import Calendar from './Calendar';
+import Calendar from '../shared/Calendar';
 
 const bgImg={
     minHeight: 500, 
@@ -25,7 +24,7 @@ const heroTitle={
 
 const AppointmentHero = ({date, setDate}) => {
     return (
-        <Box style={bgImg} >
+        <Box className='heroCalendar' style={bgImg} >
             <Container>
                 <Grid container spacing={2} sx={{alignItems: 'center'}}>
                     <Grid  item xs={12} sm={5} md={5} lg={5} order={{ xs: 2, sm: 1, md: 1}}>

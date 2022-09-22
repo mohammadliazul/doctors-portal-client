@@ -34,11 +34,12 @@ li a:hover {
 .css-195y93z-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
   background-color: #19d3ae !important;
 }
-.css-169iwlq-MuiCalendarPicker-root {
+.heroCalendar .css-169iwlq-MuiCalendarPicker-root {
   margin: 0 !important;
   margin-top: 30px !important;
   background-color: #fff;
 }
+
 .css-195y93z-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
   border: 1px solid #19d3ae !important;
 }

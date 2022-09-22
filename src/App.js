@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import Register from './components/Login/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './components/Login/PrivateRoute';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/appointment" element={<PrivateRoute><Appointment/></PrivateRoute>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
