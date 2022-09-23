@@ -5,6 +5,7 @@ import AppsIcon from '@mui/icons-material/Apps';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 export const infoData = [
     {
@@ -90,5 +91,11 @@ export const dashboardNavLink = [
       Icon: FeedOutlinedIcon,
       name: 'Prescriptions',
       link: '/dashboard/prescriptions',
+    },
+    {
+      id: 5,
+      Icon: ManageAccountsIcon,
+      name: 'Make Admin',
+      link: '/dashboard/make-admin',
     },
   ]
