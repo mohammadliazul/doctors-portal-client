@@ -1,11 +1,6 @@
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
-import AppsIcon from '@mui/icons-material/Apps';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 export const infoData = [
     {
@@ -66,36 +61,3 @@ export const bookings = [
         space: 10,
     },
 ]
-
-export const dashboardNavLink = [
-    {
-      id: 1,
-      Icon: AppsIcon,
-      name: 'Dashboard',
-      link: '/dashboard',
-    },
-    {
-      id: 2,
-      Icon: CalendarMonthOutlinedIcon,
-      name: 'Appointments',
-      link: '/dashboard/appointments',
-    },
-    {
-      id: 3,
-      Icon: PeopleAltIcon,
-      name: 'Patients',
-      link: '/dashboard/patients',
-    },
-    {
-      id: 4,
-      Icon: FeedOutlinedIcon,
-      name: 'Prescriptions',
-      link: '/dashboard/prescriptions',
-    },
-    {
-      id: 5,
-      Icon: ManageAccountsIcon,
-      name: 'Make Admin',
-      link: '/dashboard/make-admin',
-    },
-  ]

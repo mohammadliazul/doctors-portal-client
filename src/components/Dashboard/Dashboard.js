@@ -14,16 +14,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink, Outlet} from 'react-router-dom';
-import { dashboardNavLink } from '../../data/data';
 import useAuth from '../../hooks/useAuth';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AppsIcon from '@mui/icons-material/Apps';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const {logOut} = useAuth();
+  const {logOut, admin} = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -36,24 +40,59 @@ function Dashboard(props) {
         </Toolbar>
       {/* <Divider /> */}
       
-      {dashboardNavLink.map(({id, name, Icon, link})=>(
-        <List key={id}>
-          <NavLink style={{textDecoration: 'none'}} to={link}>
-          <ListItem disablePadding >
-            <ListItemButton>
-              <ListItemIcon><Icon sx={{color: '#fff'}}/> </ListItemIcon>
-              <ListItemText sx={{color: '#fff'}}>{name}</ListItemText>
-            </ListItemButton>
-          </ListItem>
+        <List>
+          <NavLink style={{textDecoration: 'none'}} to='/dashboard'>
+            <ListItem disablePadding >
+              <ListItemButton>
+                <ListItemIcon><AppsIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                <ListItemText sx={{color: '#fff'}}>Dashboard</ListItemText>
+              </ListItemButton>
+            </ListItem>
           </NavLink>
+          
+          <NavLink style={{textDecoration: 'none'}} to='/dashboard/appointments'>
+            <ListItem disablePadding >
+              <ListItemButton>
+                <ListItemIcon><CalendarMonthOutlinedIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                <ListItemText sx={{color: '#fff'}}>Appointments</ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
+
+          <NavLink style={{textDecoration: 'none'}} to='/dashboard/patients'>
+            <ListItem disablePadding >
+              <ListItemButton>
+                <ListItemIcon><PeopleAltIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                <ListItemText sx={{color: '#fff'}}>Patients</ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
+
+          <NavLink style={{textDecoration: 'none'}} to='/dashboard/prescriptions'>
+            <ListItem disablePadding >
+              <ListItemButton>
+                <ListItemIcon><FeedOutlinedIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                <ListItemText sx={{color: '#fff'}}>Prescriptions</ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
+
+          {admin && 
+            <NavLink style={{textDecoration: 'none'}} to='/dashboard/make-admin'>
+              <ListItem disablePadding >
+                <ListItemButton>
+                  <ListItemIcon><ManageAccountsIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                  <ListItemText sx={{color: '#fff'}}>Make Admin</ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          }
+
+          <ListItemButton onClick={logOut}> 
+            <ListItemIcon><LogoutIcon sx={{color: '#fff'}}/> </ListItemIcon>
+            <ListItemText sx={{color: '#fff'}}>Log Out</ListItemText>
+          </ListItemButton>
         </List>
-      ))}
-
-      <ListItemButton onClick={logOut}> 
-        <ListItemIcon><LogoutIcon sx={{color: '#fff'}}/> </ListItemIcon>
-        <ListItemText sx={{color: '#fff'}}>Log Out</ListItemText>
-      </ListItemButton>
-
     </div>
   );
 
