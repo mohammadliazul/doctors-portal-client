@@ -15,6 +15,7 @@ import Appointments from './components/Dashboard/Appointments/Appointments';
 import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome';
 import Dashboard from './components/Dashboard/Dashboard';
 import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
+import AdminRoute from './components/Login/AdminRoute';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard/>}>
           <Route index element={<DashboardHome/>}/>
           <Route path="appointments" element={<Appointments/>}/>
-          <Route path="make-admin" element={<MakeAdmin/>}/>
+          <Route path="make-admin" element={<AdminRoute><MakeAdmin/></AdminRoute>}/>
         </Route>
         
         <Route path="*" element={<NotFound />} />
