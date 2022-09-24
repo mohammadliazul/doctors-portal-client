@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { NavLink, Outlet} from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate} from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AppsIcon from '@mui/icons-material/Apps';
@@ -21,6 +21,7 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+// import CreditCardIcon from '@mui/icons-material/CreditCard';
 
 const drawerWidth = 240;
 
@@ -28,15 +29,22 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const {logOut, admin} = useAuth();
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleLogOut = e => {
+    e.preventDefault();
+    navigate('/');
+    logOut();
+  } 
+
   const drawer = (
     <div>
       <Toolbar>
-        <Typography variant='h5' color='#3A4256' fontWeight='600'>Doctors Portal</Typography>
+        <Link to='/' style={{textDecoration:'none'}}><Typography variant='h5' color='#3A4256' fontWeight='600'>Doctors Portal</Typography></Link>
         </Toolbar>
       {/* <Divider /> */}
       
@@ -88,7 +96,16 @@ function Dashboard(props) {
             </NavLink>
           }
 
-          <ListItemButton onClick={logOut}> 
+          {/* <NavLink style={{textDecoration: 'none'}} to='/dashboard/payment'>
+            <ListItem disablePadding >
+              <ListItemButton>
+                <ListItemIcon><CreditCardIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                <ListItemText sx={{color: '#fff'}}>Payment</ListItemText>
+              </ListItemButton>
+            </ListItem>
+          </NavLink> */}
+
+          <ListItemButton onClick={handleLogOut}> 
             <ListItemIcon><LogoutIcon sx={{color: '#fff'}}/> </ListItemIcon>
             <ListItemText sx={{color: '#fff'}}>Log Out</ListItemText>
           </ListItemButton>

@@ -16,6 +16,9 @@ import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome';
 import Dashboard from './components/Dashboard/Dashboard';
 import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
 import AdminRoute from './components/Login/AdminRoute';
+import Payment from './components/Dashboard/Payment/Payment';
+import Patients from './components/Dashboard/Patients/Patients';
+import Prescriptions from './components/Dashboard/Prescriptions/Prescriptions';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
           <Route index element={<DashboardHome/>}/>
           <Route path="appointments" element={<Appointments/>}/>
           <Route path="make-admin" element={<AdminRoute><MakeAdmin/></AdminRoute>}/>
+          <Route path="payment/:appointmentId" element={<Payment/>}/>
+          <Route path="patients" element={<Patients/>}/>
+          <Route path="prescriptions" element={<Prescriptions/>}/>
         </Route>
         
         <Route path="*" element={<NotFound />} />
