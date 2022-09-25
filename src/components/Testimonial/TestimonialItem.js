@@ -10,7 +10,7 @@ const TestmonialItem = (props) => {
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ minWidth: 275, paddingTop: 3, boxShadow: '3px 4px 10px 2px rgba(0, 0, 0, 0.05)'}}>
                 <CardContent >
-                    <Typography variant="body1" >
+                    <Typography variant="body1" color='#8C8997' >
                         {description}
                     </Typography>
                 </CardContent>
@@ -24,10 +24,10 @@ const TestmonialItem = (props) => {
                         />
                     </Box>
                     <Box >
-                        <Typography variant="h6" component="div">
+                        <Typography variant="h6" component="div" color='#3A4256'>
                             {name}
                         </Typography>
-                        <Typography variant="substitle1" component="div">
+                        <Typography variant="substitle1" component="div" color= '#8C8997'>
                             {address}
                         </Typography>
                     </Box>

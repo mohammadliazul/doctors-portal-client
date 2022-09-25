@@ -39,7 +39,7 @@ const Testimonial = () => {
                     <Typography variant='h6' sx={{color: '#19D3AE', fontSize: '18px', lineHeight: '27px', fontWeight: 700}}>
                         Testimonial
                     </Typography>
-                    <Typography variant='h4' sx={{fontSize: '34px', lineHeight: '49px', fontWeight: 500,}}>
+                    <Typography variant='h4' sx={{fontSize: '34px', lineHeight: '49px', fontWeight: 500, color: '#3A4256'}}>
                     What Our Patients Says
                     </Typography>
                 </Box>

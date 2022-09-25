@@ -40,7 +40,7 @@ const Hero = () => {
                             <Typography variant='h3' style={heroTitle}>
                             Your New Smile Starts Here
                             </Typography>
-                            <Typography variant='body1' sx={{mt: 3, mb: 4}}>
+                            <Typography variant='body1' sx={{mt: 3, mb: 4, color: '#8C8997'}}>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium minus expedita ipsam fuga illo quibusdam. ellumnal consequuntur veritatis at cupiditate.
                             </Typography>
                             <MuiButton onClick={() => navigate('/appointment')}>

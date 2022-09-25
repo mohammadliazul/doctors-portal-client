@@ -16,10 +16,10 @@ const SingleService = (props) => {
                     alt="service image"
                 />
                 <CardContent >
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h6" component="div" sx={{mb: 1, color: '#3A4256', fontWeight: 600}}>
                         {title}
                     </Typography>
-                    <Typography variant="body2" >
+                    <Typography variant="body1" textAlign='center' color='#8C8997'>
                         {description}
                     </Typography>
                 </CardContent>

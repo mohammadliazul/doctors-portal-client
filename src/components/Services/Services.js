@@ -36,7 +36,7 @@ const Services = () => {
             <Typography sx={{color: '#19D3AE', fontSize: '18px', lineHeight: '27px', fontWeight: 700, marginTop: '90px'}} variant='h6' component='div'>
               OUR SERVICES
             </Typography>
-            <Typography sx={{fontSize: '34px', lineHeight: '49px', fontWeight: 500,marginBottom: '60px'}} variant='h4' component='div'>
+            <Typography sx={{fontSize: '34px', lineHeight: '49px', fontWeight: 500,marginBottom: '60px', color: '#3A4256'}} variant='h4' component='div'>
               Services We Provide
             </Typography>
             <Grid container spacing={3}>

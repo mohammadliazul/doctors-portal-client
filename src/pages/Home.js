@@ -8,6 +8,7 @@ import Contact from '../components/Contact/Contact';
 import Testimonial from '../components/Testimonial/Testimonial';
 import About from '../components/About/About';
 import Footer from '../components/Footer/Footer';
+import Doctors from '../components/Doctors/Doctors';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <About/>
             <AppointmentBanner/>
             <Testimonial/>
+            <Doctors/>
             <Contact/>
             <Footer/>
         </>

@@ -44,6 +44,7 @@ li a:hover {
   border: 1px solid #19d3ae !important;
 }
 
+/* input file style  */
 input[type="file"]::file-selector-button {
   margin-right: 20px;
   border: none;
