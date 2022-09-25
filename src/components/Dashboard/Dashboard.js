@@ -21,7 +21,7 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-// import CreditCardIcon from '@mui/icons-material/CreditCard';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const drawerWidth = 240;
 
@@ -96,14 +96,14 @@ function Dashboard(props) {
             </NavLink>
           }
 
-          {/* <NavLink style={{textDecoration: 'none'}} to='/dashboard/payment'>
+          <NavLink style={{textDecoration: 'none'}} to='/dashboard/add-doctor'>
             <ListItem disablePadding >
               <ListItemButton>
-                <ListItemIcon><CreditCardIcon sx={{color: '#fff'}}/> </ListItemIcon>
-                <ListItemText sx={{color: '#fff'}}>Payment</ListItemText>
+                <ListItemIcon><PersonAddIcon sx={{color: '#fff'}}/> </ListItemIcon>
+                <ListItemText sx={{color: '#fff'}}>Add Doctor</ListItemText>
               </ListItemButton>
             </ListItem>
-          </NavLink> */}
+          </NavLink>
 
           <ListItemButton onClick={handleLogOut}> 
             <ListItemIcon><LogoutIcon sx={{color: '#fff'}}/> </ListItemIcon>

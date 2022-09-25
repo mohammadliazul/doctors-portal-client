@@ -43,3 +43,18 @@ li a:hover {
 .css-195y93z-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
   border: 1px solid #19d3ae !important;
 }
+
+input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #0fcfec;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #0d45a5;
+}
