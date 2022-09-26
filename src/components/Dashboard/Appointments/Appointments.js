@@ -8,12 +8,12 @@ const Appointments = () => {
     return (
         <Grid container spacing={2}>
           <Grid xs={12} item sm={12} md={6} lg={4}>
-            <Calendar
-              style={{marginTop: '0px !important'}}
-              date={date}
-              setDate={setDate}
-            >
-            </Calendar>
+              <Calendar
+                style={{marginTop: '0px !important'}}
+                date={date}
+                setDate={setDate}
+              >
+              </Calendar>
 
           </Grid>
           <Grid xs={12} item sm={12} md={6} lg={8}>
