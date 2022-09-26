@@ -22,10 +22,26 @@ import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import userIcon from '../../assets/icons/user.svg';
+import { Tooltip } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles(theme => ({
+  customTooltip: {
+    background: 'linear-gradient(90deg, #19D3AE, #0FCFEC)',
+    fontSize: '14px !important'
+  },
+  customArrow: {
+    color: '#19D3AE !important'
+  },
+}));
+
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
+  const classes = useStyles();
+  const {user} = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const {logOut, admin} = useAuth();
@@ -135,9 +151,23 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
+
+          <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems:'center', width: '100%'}}>
+            <Typography variant="body1">
+              Dashboard
+            </Typography>
+            <Box>
+              <Box sx={{height: '40px', width: '40px', borderRadius: '50%', border: 'none'}}>
+                <Tooltip title={user?.displayName}  
+                classes={{
+                  tooltip: classes.customTooltip,
+                  arrow: classes.customArrow,
+                }}arrow>
+                  <img src={userIcon} alt='user'></img>
+                </Tooltip>
+              </Box>
+            </Box>
+          </Box>
         </Toolbar>
       </AppBar>
       <Box
