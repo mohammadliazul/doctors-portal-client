@@ -18,15 +18,20 @@ const Payment = () => {
     },[appointmentId])
 
     return (
-        <Box>
-            <Typography variant='h5' sx={{textAlign:'center'}}>Please Pay for: {appointmentId} </Typography>
-            <Typography variant='h6' sx={{textAlign:'center'}}>Pay: $ {appointment.price} </Typography>
+        <Box sx={{display:'flex', alignItems: 'center', justifyContent: 'center', mt: 3}}>
+            <Box>
+                <Typography variant='h5' sx={{textAlign:'center', color: '#19D3AE', fontWeight: 600}}>Please Pay for: {appointment.serviceName} </Typography>
+                <Typography variant='h6' sx={{textAlign:'left', color: '#4F5B7A'}}>Patient Name: {appointment.patientName} </Typography>
+                <Typography variant='h6' sx={{textAlign:'left', color: '#4F5B7A', mb: 5}}>Pay: ${appointment.price} </Typography>
 
-            {appointment?.price &&
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm appointment={appointment}/>
-                </Elements>
-            } 
+                <Box  sx={{maxWidth: '400px'}}>
+                    {appointment?.price &&
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm appointment={appointment}/>
+                        </Elements>
+                    } 
+                </Box>
+            </Box>
         </Box>
     );
 };
