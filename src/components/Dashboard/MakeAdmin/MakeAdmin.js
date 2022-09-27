@@ -14,7 +14,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         e.preventDefault();
         const user = { email };
-        fetch('http://localhost:5000/users/make-admin', {
+        fetch(`${process.env.REACT_APP_SERVER_API}/users/make-admin`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,

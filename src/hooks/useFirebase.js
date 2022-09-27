@@ -127,7 +127,7 @@ const logOut = () => {
 /*---------- Save User To Database-----------*/
 const saveUser = (email, displayName, method) => {
     const user = {email, displayName};
-    fetch('http://localhost:5000/users', {
+    fetch(`${process.env.REACT_APP_SERVER_API}/users`, {
         method : method,
         headers: {
             'content-type':'application/json'
@@ -139,7 +139,7 @@ const saveUser = (email, displayName, method) => {
 
 /*---------- Check database user admin or not-----------*/
 useEffect(()=>{
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`${process.env.REACT_APP_SERVER_API}/users/${user.email}`)
     .then(res => res.json())
     .then(data => setAdmin(data.admin))
 },[user.email])

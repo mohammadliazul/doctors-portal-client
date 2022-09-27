@@ -12,7 +12,7 @@ const Payment = () => {
     const [appointment, setAppointment] = useState({});
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/appointments/${appointmentId}`)
+        fetch(`${process.env.REACT_APP_SERVER_API}/appointments/${appointmentId}`)
             .then(res => res.json())
             .then(data => setAppointment(data));
     },[appointmentId])

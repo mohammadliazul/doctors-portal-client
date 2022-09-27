@@ -15,7 +15,7 @@ const CheckoutForm  = ({appointment}) => {
     const {user} = useAuth();
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch(`${process.env.REACT_APP_SERVER_API}/create-payment-intent`, {
            method: 'POST',
            headers: {
             'content-type' : 'application/json',
@@ -81,7 +81,7 @@ const CheckoutForm  = ({appointment}) => {
             created: paymentIntent.created,
             last4: paymentMethod.card.last4,
         }
-        const url = `http://localhost:5000/appointments/${_id}`;
+        const url = `${process.env.REACT_APP_SERVER_API}/appointments/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

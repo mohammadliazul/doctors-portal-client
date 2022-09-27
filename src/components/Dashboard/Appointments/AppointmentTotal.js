@@ -16,7 +16,7 @@ const AppointmentTotal = ({date}) => {
     const [appointments, setAppointments] = useState([]);
   
     useEffect(()=> {
-        const url = `http://localhost:5000/appointments?email=${user.email}&date=${date.toLocaleDateString()}`;
+        const url = `${process.env.REACT_APP_SERVER_API}/appointments?email=${user.email}&date=${date.toLocaleDateString()}`;
         fetch(url, {
           headers: {
             'authorization': `Bearer ${token}`

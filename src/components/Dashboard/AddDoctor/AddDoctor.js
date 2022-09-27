@@ -18,7 +18,7 @@ const AddDoctor = () => {
         formData.append('phone', phone);
         formData.append('image', image);
 
-        fetch('http://localhost:5000/doctors', {
+        fetch(`${process.env.REACT_APP_SERVER_API}/doctors`, {
             method: 'POST',
             body: formData
         })

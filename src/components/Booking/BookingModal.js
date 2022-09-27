@@ -47,7 +47,7 @@ const BookingModal = ({open, handleClose, date, booking, setBookingSuccess}) => 
         // console.log(appointment);
 
         // send to the server
-        fetch('http://localhost:5000/appointments', {
+        fetch(`${process.env.REACT_APP_SERVER_API}/appointments`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

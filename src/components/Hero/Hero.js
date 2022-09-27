@@ -8,14 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const bgImg={
-    minHeight: 500, 
-    height:'100vh', 
-    display:'flex', 
-    alignItems: 'center',
-    background:  `url(${bg})`,
-    zIndex: -1
-}
+// const bgImg={
+//     // minHeight: 500, 
+//     height:'100%', 
+//     display:'flex', 
+//     alignItems: 'center',
+//     background:  `url(${bg})`,
+//     zIndex: -1
+// }
 
 const heroTitle={
     fontFamily: 'Open Sans',
@@ -32,7 +32,14 @@ const Hero = () => {
     const navigate = useNavigate();
 
     return (
-        <Box style={bgImg} >
+        <Box 
+            sx={{    
+            height:{xs:'870px', sm:'100vh', md: '100vh', lg: '100vh'}, 
+            display:'flex', 
+            alignItems: 'center',
+            background:  `url(${bg})`,
+            zIndex: -1}}
+        >
             <Container>
                 <Grid container spacing={2} sx={{alignItems: 'center'}}>
                     <Grid item xs={12} sm={5} md={5} lg={5} order={{ xs: 2, sm: 1, md: 1}}>
@@ -40,8 +47,8 @@ const Hero = () => {
                             <Typography variant='h3' style={heroTitle}>
                             Your New Smile Starts Here
                             </Typography>
-                            <Typography variant='body1' sx={{mt: 3, mb: 4, color: '#8C8997'}}>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium minus expedita ipsam fuga illo quibusdam. ellumnal consequuntur veritatis at cupiditate.
+                            <Typography variant='body1' sx={{mt: 3, mb: 4, color: '#8C8997', textAlign: 'justify', mr:2}}>
+                            Your oral health is our priority, and we want you to have a strong, healthy and beautiful smile that lasts a lifetime. Contact us today to schedule your consultation or appointment with your West Bloomfield dentist to discuss your oral health and our hundred parcent two-year warranty for you and your entire family.
                             </Typography>
                             <MuiButton onClick={() => navigate('/appointment')}>
                                 Get Appointment
