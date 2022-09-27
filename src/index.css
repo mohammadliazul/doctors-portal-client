@@ -23,6 +23,7 @@ li a {
   color: #3a4256;
   transition: 0.4s ease;
   line-height: 28px;
+  font-weight: 500;
 }
 
 li a:hover {

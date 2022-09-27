@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-// import Divider from '@mui/material/Divider';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -57,12 +57,13 @@ function Dashboard(props) {
     logOut();
   } 
 
+//--------------- Small Devices Navigation Link ---------------
   const drawer = (
     <div>
       <Toolbar>
-        <Link to='/' style={{textDecoration:'none'}}><Typography variant='h5' color='#3A4256' fontWeight='600'>Doctors Portal</Typography></Link>
+        <Link to='/' style={{textDecoration:'none'}}><Typography variant='h5' color='#fff' fontWeight='600'>Doctors Portal</Typography></Link>
         </Toolbar>
-      {/* <Divider /> */}
+      <Divider />
       
         <List>
           <NavLink style={{textDecoration: 'none'}} to='/dashboard'>
@@ -202,14 +203,11 @@ function Dashboard(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }}}
-      >
+
+      {/*---------------  Dashboard Main Section  ---------------*/}
+      <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }}}>
         <Toolbar />
-
         <Outlet/>
-
       </Box>
     </Box>
   );
