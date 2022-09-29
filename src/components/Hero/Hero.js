@@ -6,17 +6,6 @@ import bg from '../../assets/images/bg.png';
 import MuiButton from '../styledComponent/MuiButton';
 import { useNavigate } from 'react-router-dom';
 
-
-
-// const bgImg={
-//     // minHeight: 500, 
-//     height:'100%', 
-//     display:'flex', 
-//     alignItems: 'center',
-//     background:  `url(${bg})`,
-//     zIndex: -1
-// }
-
 const heroTitle={
     fontFamily: 'Open Sans',
     fontStyle: 'normal',

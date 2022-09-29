@@ -51,7 +51,7 @@ const AppointmentTotal = ({date}) => {
                       <TableCell align="center">{appointment.time}</TableCell>
                       <TableCell align="center">{appointment.serviceName}</TableCell>
                       <TableCell align="center">{appointment.payment ? 
-                        <span style={{color: '#19D3AE', fontWeight: 600}}>Paid</span>: 
+                        <span style={{color: '#4CAF50', backgroundColor: '#EDF7ED', fontWeight: 600, padding: '8px 16px', borderRadius: '3px'}}>Paid</span>: 
                         <Link to={`/dashboard/payment/${appointment._id}`} style={{textDecoration: 'none'}}>
                           <Button variant='contained' 
                             sx={{

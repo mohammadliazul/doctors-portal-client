@@ -9,8 +9,8 @@ export default function Calendar({date, setDate}) {
 
   return (
     <Box>
-        <LocalizationProvider    dateAdapter={AdapterDateFns}>
-          <CalendarPicker  date={date} onChange={(newDate) => setDate(newDate)} />
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
         </LocalizationProvider>
     </Box>
   );
